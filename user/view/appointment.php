@@ -43,6 +43,9 @@
                                 <option value="SAT">Saturday</option>
                             </select>
                         </div>
+                        <div class="form-group">
+                            <input type="date" name="datePicker" class="form-control"/>
+                        </div>
                         
                         <!-- Change this to a button or input when using this as a form -->     
                         <button type="submit" name="app_submit" class="btn btn-sm btn-success">Submit</button>

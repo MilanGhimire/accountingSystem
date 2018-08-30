@@ -2,8 +2,6 @@
 include_once ('DbConnection.php');
 session_start();
 
-//test comment
-
 class Account// extends DbConnection
 {
     public $conn = null;

@@ -23,8 +23,9 @@ class Appointment
         return $AppintmentInsert->execute() ? true : false;
     }
 
-    public function viewAppointments($username, $password, $usertype) {
-        //code here
+    public function viewAllAppointments() {
+        $AllAppointments = $this->conn->prepare('SELECT * FROM db_accounting.tbl_appointment;');
+        return $AllAppointments->execute() ? $AllAppointments->fetchAll() : false;
     }
     
     public function viewUnreadAppointment() {

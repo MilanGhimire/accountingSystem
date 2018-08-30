@@ -51,18 +51,45 @@ include_once 'layouts/sidebar.php';?>
                           <div class="panel-body">
                               <div class="tab-content">
                                   <div id="recent-activity" class="tab-pane active">
-                                      <div class="profile-activity">                                          
-                                          <div class="act-time">                                      
-                                              <div class="activity-body act-in">
-                                                  <span class="arrow"></span>
-                                                  <div class="text">
-                                                      <a href="#" class="activity-img"><img class="avatar" src="img/chat-avatar.jpg" alt=""></a>
-                                                      <p class="attribution"><a href="#">Jonatanh Doe</a> at 4:25pm, 30th Octmber 2014</p>
-                                                      <p>It is a long established fact that a reader will be distracted layout</p>
-                                                  </div>
-                                              </div>
-                                          </div>
+                                      <div class="row">
+                                          <div class="col-lg-12">
+                                              <section class="panel">
+                                                  <header class="panel-heading">
+                                                      <?php $appointmentlist = new Appointment();
+                                                      $allList = $appointmentlist->viewAllAppointments();
+                                                      print_r($allList); ?>
+                                                  </header>
 
+                                                  <table class="table table-striped table-advance table-hover">
+                                                   <tbody>
+                                                      <tr>
+                                                         <th><i class="icon_profile"></i> Full Name</th>
+                                                         <th><i class="icon_calendar"></i> Date</th>
+                                                         <th><i class="icon_mail_alt"></i> Email</th>
+                                                         <th><i class="icon_pin_alt"></i> Date</th>
+                                                         <th><i class="icon_mobile"></i> Mobile</th>
+                                                         <th><i class="icon_cogs"></i> Action</th>
+                                                      </tr>
+                                                      <?php foreach ($allList as $key => $value):?>
+                                                      <tr>
+                                                         <td><?php echo $value['app_fullName']; ?></td>
+                                                         <td>2004-07-06</td>
+                                                         <td><?php echo $value['app_email']; ?></td>
+                                                         <td><?php echo $value['app_date']; ?></td>
+                                                         <td><?php echo $value['app_phoneNumber']; ?></td>
+                                                         <td>
+                                                          <div class="btn-group">
+                                                              <a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>
+                                                              <a class="btn btn-success" href="#"><i class="icon_check_alt2"></i></a>
+                                                              <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
+                                                          </div>
+                                                          </td>
+                                                      </tr> 
+                                                      <?php endforeach; ?>
+                                                   </tbody>
+                                                </table>
+                                              </section>
+                                          </div>
                                       </div>
                                   </div>
                                   <!-- profile -->
