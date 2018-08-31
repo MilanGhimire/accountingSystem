@@ -22,6 +22,16 @@ class Appointment
 
         return $AppintmentInsert->execute() ? true : false;
     }
+    
+    public function coundAppointments() {
+        $CountAppointments = $this->conn->prepare('SELECT COUNT(*) FROM db_accounting.tbl_appointment;');
+        
+        if ($CountAppointments->execute()) {
+            $count = $CountAppointments->fetch();
+            return $count['COUNT(*)'];
+        }
+        return false;
+    }
 
     public function viewAllAppointments() {
         $AllAppointments = $this->conn->prepare('SELECT * FROM db_accounting.tbl_appointment;');

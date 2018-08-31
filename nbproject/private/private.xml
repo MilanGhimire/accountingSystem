@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/html/accountingSystem/contact.php</file>
-            <file>file:/var/www/html/accountingSystem/user/view/appointment.php</file>
-            <file>file:/var/www/html/accountingSystem/index.php</file>
-            <file>file:/var/www/html/accountingSystem/assets/layouts/header.php</file>
+            <file>file:/var/www/html/accountingSystem/admin/view/index.php</file>
+            <file>file:/var/www/html/accountingSystem/Controller/Appointment.php</file>
+            <file>file:/var/www/html/accountingSystem/Controller/Account.php</file>
+            <file>file:/var/www/html/accountingSystem/admin/view/AppointmentList.php</file>
+            <file>file:/var/www/html/accountingSystem/Controller/Feedback.php</file>
         </group>
     </open-files>
 </project-private>

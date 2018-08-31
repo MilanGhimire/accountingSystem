@@ -21,10 +21,10 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li <?php //if($active== null){echo 'class="active"';}  ?>><a href="#">Home</a></li>
+                        <li <?php if($active== null){echo 'class="active"';}  ?>><a href="index.php">Home</a></li>
                         <li <?php //if($active=='aboutUs'){echo 'class="active"';}  ?>><a href="#">About Us</a></li>
                         <li <?php //if($active=='acServices'){echo 'class="active"';}  ?>><a href="#">Accounting Services</a></li>
-                        <li <?php //if($active=='contact'){echo 'class="active"';}  ?> class='active'><a href="contact.php">Contact Us</a></li>
+                        <li <?php if ($active == 'contact') { echo 'class="active"'; } ?>><a href="contact.php">Contact Us</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="user/view/register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -68,7 +68,7 @@
                 setInterval(() => {
 
                     $.get("https://api.apixu.com/v1/current.json?key=533920d31cc44af491660306182603&q=" + cities[count], function (data, status) {
-                        $("li.city").text(cities[0]);
+                        $("li.city").text(cities[count]);
                         $("li.text").html('<img style="width: 40px;height:30px;" src="http:' + data.current.condition.icon + '"/>' + data.current.condition.text)
                         $("li.temp").html(data.current.temp_c + "<sup>o</sup>C");
                     })

@@ -1,4 +1,5 @@
-<?php include_once 'assets/layouts/header.php'; ?>
+<?php $active = null;   
+include_once 'assets/layouts/header.php'; ?>
     <!-- Navigation Bar Ends-->
 
     <div class="container">

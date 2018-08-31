@@ -25,6 +25,9 @@ class Helper {
     }
     
     public function successMessage($message) {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
         $contain = '<div class="alert alert-success fade in">
                     <button data-dismiss="alert" class="close close-sm" type="button">
                         <i class="icon-remove"></i>
@@ -36,6 +39,9 @@ class Helper {
     }
     
     public function errorMessage($message) {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
         $contain = '<div class="alert alert-block alert-danger fade in">
                         <button data-dismiss="alert" class="close close-sm" type="button">
                             <i class="icon-remove"></i>

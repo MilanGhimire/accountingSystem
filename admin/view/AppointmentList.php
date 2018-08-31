@@ -57,7 +57,7 @@ include_once 'layouts/sidebar.php';?>
                                                   <header class="panel-heading">
                                                       <?php $appointmentlist = new Appointment();
                                                       $allList = $appointmentlist->viewAllAppointments();
-                                                      print_r($allList); ?>
+                                                      //print_r($allList); ?>
                                                   </header>
 
                                                   <table class="table table-striped table-advance table-hover">
@@ -107,7 +107,9 @@ include_once 'layouts/sidebar.php';?>
                                           <div class="col-lg-12">
                                               <section class="panel">
                                                   <header class="panel-heading">
-                                                      Advanced Table
+                                                      <?php $Feedbacklist = new Feedback();
+                                                      $allList = $Feedbacklist->viewAllFeedback();
+                                                      print_r($allList); ?>
                                                   </header>
 
                                                   <table class="table table-striped table-advance table-hover">
@@ -120,6 +122,7 @@ include_once 'layouts/sidebar.php';?>
                                                          <th><i class="icon_mobile"></i> Mobile</th>
                                                          <th><i class="icon_cogs"></i> Action</th>
                                                       </tr>
+                                                      <?php foreach ($array as $key => $value): ?>
                                                       <tr>
                                                          <td>Angeline Mcclain</td>
                                                          <td>2004-07-06</td>
@@ -133,7 +136,8 @@ include_once 'layouts/sidebar.php';?>
                                                               <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
                                                           </div>
                                                           </td>
-                                                      </tr>                            
+                                                      </tr>
+                                                      <?php endforeach;?>
                                                    </tbody>
                                                 </table>
                                               </section>

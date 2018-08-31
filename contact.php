@@ -1,5 +1,6 @@
 <?php
 $active = 'contact';
+session_start();
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -16,6 +17,7 @@ $active = 'contact';
 
     </head>
     <body>
+        <?php include_once 'assets/layouts/header.php'; ?>
         <div class="container">
             <div class="row">
                 <div id="googleMap" style="width:100%;height:400px;"></div>
@@ -23,17 +25,23 @@ $active = 'contact';
             <div>
                 <h2 class="text-center">Contact Form</h2>
                 <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <p><?php if (isset($_SESSION['showMessage'])) {
+                            echo $_SESSION['showMessage'];
+                            unset($_SESSION['showMessage']);
+                        } ?></p>
+                    </div>
                     <div class="col-12 col-md-8 col-lg-6 pb-5">
 
 
                         <!--Form with header-->
 
-                        <form action="mail.php" method="post">
+                        <form action="Controller/Action/feedback_request.php" method="post">
                             <div class="card border-primary rounded-0">
                                 <div class="card-header p-0">
                                     <div class="bg-info text-white text-center py-2">
-                                        <h3><i class="fa fa-envelope"></i> Contactanos</h3>
-                                        <p class="m-0">Con gusto te ayudaremos</p>
+                                        <h3><i class="fa fa-envelope"></i> Contact Us</h3>
+                                        <p class="m-0">We will gladly help you/<p>
                                     </div>
                                 </div>
                                 <div class="card-body p-3">
@@ -44,7 +52,7 @@ $active = 'contact';
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
                                             </div>
-                                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre y Apellido" required>
+                                            <input type="text" class="form-control" id="nombre" name="fullName" placeholder="Full Name" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -61,12 +69,12 @@ $active = 'contact';
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
                                             </div>
-                                            <textarea class="form-control" placeholder="Envianos tu Mensaje" required></textarea>
+                                            <textarea name="message" class="form-control" placeholder="Send us your message" required></textarea>
                                         </div>
                                     </div>
 
                                     <div class="text-center">
-                                        <input type="submit" value="Enviar" class="btn btn-info btn-block rounded-0 py-2">
+                                        <input type="submit" name="feedbackSubmit" value="Submit" class="btn btn-info btn-block rounded-0 py-2">
                                     </div>
                                 </div>
 

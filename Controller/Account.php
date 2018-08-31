@@ -59,4 +59,13 @@ class Account// extends DbConnection
         }
         return false;
     }
+    
+    public function countUsers() {
+        $countUsers  = $this->conn->prepare('SELECT COUNT(*) FROM tbl_profile;');
+        if ($countUsers->execute()) {
+            $count = $countUsers->fetch();
+            return $count['COUNT(*)'];
+        }
+        return false;
+    }
 }
