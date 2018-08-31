@@ -16,34 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tbl_profile`
+-- Table structure for table `tbl_feedback`
 --
 
-DROP TABLE IF EXISTS `tbl_profile`;
+DROP TABLE IF EXISTS `tbl_feedback`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tbl_profile` (
-  `pro_id` int(11) NOT NULL AUTO_INCREMENT,
-  `full_name` varchar(45) NOT NULL,
-  `address` varchar(45) NOT NULL,
-  `contact` varchar(45) NOT NULL,
-  `email` varchar(45) NOT NULL,
-  `username` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
-  `user_type` varchar(45) NOT NULL,
-  PRIMARY KEY (`pro_id`),
-  UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+CREATE TABLE `tbl_feedback` (
+  `feed_id` int(11) NOT NULL AUTO_INCREMENT,
+  `feed_name` varchar(45) DEFAULT NULL,
+  `feed_email` varchar(255) DEFAULT NULL,
+  `feed_message` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`feed_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tbl_profile`
+-- Dumping data for table `tbl_feedback`
 --
 
-LOCK TABLES `tbl_profile` WRITE;
-/*!40000 ALTER TABLE `tbl_profile` DISABLE KEYS */;
-INSERT INTO `tbl_profile` VALUES (1,'Milan','Hokse','9861211775','nsihandhungana\"gmail.com','milan','12345','user'),(2,'Nishan','Godwari','9849808708','milanghimire1@gmail.com','nishan','54321','admin');
-/*!40000 ALTER TABLE `tbl_profile` ENABLE KEYS */;
+LOCK TABLES `tbl_feedback` WRITE;
+/*!40000 ALTER TABLE `tbl_feedback` DISABLE KEYS */;
+INSERT INTO `tbl_feedback` VALUES (1,'Test','1@gmail.com','this is not a test'),(2,'second','milanghimire1@gmail.com','test message'),(3,'third','nishandhungana41@gmail.com','third message'),(4,'forth','forth@gmail.com','forth message'),(5,'fsd','fds@gmail.com','afds');
+/*!40000 ALTER TABLE `tbl_feedback` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

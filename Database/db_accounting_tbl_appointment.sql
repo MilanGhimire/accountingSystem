@@ -30,7 +30,7 @@ CREATE TABLE `tbl_appointment` (
   `app_phoneNumber` decimal(10,0) DEFAULT NULL,
   `app_view` enum('1','0') DEFAULT NULL,
   PRIMARY KEY (`app_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `tbl_appointment` (
 
 LOCK TABLES `tbl_appointment` WRITE;
 /*!40000 ALTER TABLE `tbl_appointment` DISABLE KEYS */;
-INSERT INTO `tbl_appointment` VALUES (1,'fsd','gsdaf@gmail.com','SUN',11,NULL),(8,'Milan','fds@gmail.com','MON',22,'0'),(9,'Milan','fds@gmail.com','MON',22,'0');
+INSERT INTO `tbl_appointment` VALUES (10,'Milan GHimire','milanghimire1@gmail.com','WED',9849808708,'0'),(11,'Nishan','nishandhungana41@gmail.com','THU',9841414141,'0');
 /*!40000 ALTER TABLE `tbl_appointment` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-08-29 22:15:51
+-- Dump completed on 2018-08-31 15:32:38
