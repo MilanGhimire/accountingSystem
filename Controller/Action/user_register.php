@@ -12,7 +12,7 @@ if (isset($_POST['signup'])) {
     $email = $_POST['email'];
     $contact = $_POST['contact'];
     $username = $_POST['username'];
-    $password = $_POST['password'];
+    $password = md5($_POST['password']);
     $userType = "user";
 
     echo $full_name;

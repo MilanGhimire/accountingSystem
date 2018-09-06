@@ -41,7 +41,7 @@ session_start();
                                 <div class="card-header p-0">
                                     <div class="bg-info text-white text-center py-2">
                                         <h3><i class="fa fa-envelope"></i> Contact Us</h3>
-                                        <p class="m-0">We will gladly help you/<p>
+                                        <p class="m-0">We will gladly help you<p>
                                     </div>
                                 </div>
                                 <div class="card-body p-3">
@@ -52,7 +52,7 @@ session_start();
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
                                             </div>
-                                            <input type="text" class="form-control" id="nombre" name="fullName" placeholder="Full Name" required>
+                                            <input type="text" class="form-control" id="nombre" name="fullName" placeholder="Full Name" pattern="[A-za-z]" title="Only Alphabetical" required>
                                         </div>
                                     </div>
                                     <div class="form-group">

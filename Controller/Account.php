@@ -68,4 +68,13 @@ class Account// extends DbConnection
         }
         return false;
     }
+    
+    public function checkUsername($uname) {
+        $countUser  = $this->conn->prepare("SELECT COUNT(*) FROM tbl_profile WHERE username='" . $uname . "';");
+        if ($countUser->execute()) {
+            $count = $countUser->fetch();
+            return $count['COUNT(*)'];
+        }
+        return false;
+    }
 }
