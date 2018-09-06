@@ -14,7 +14,7 @@ class Account// extends DbConnection
 
     public function register($full_name, $address, $contact, $email, $username, $password, $usertype) {
 
-        $BrandInsert = $this->conn->prepare("INSERT INTO tbl_profile values(NULL, :full_name, :address, :contact, :email, :username, :password, :userType)");
+        $BrandInsert = $this->conn->prepare("INSERT INTO `db_accounting`.`tbl_profile` (`full_name`, `address`, `contact`, `email`, `username`, `password`, `user_type`, `date`) values(:full_name, :address, :contact, :email, :username, :password, :userType, CURRENT_TIMESTAMP)");
 
         $BrandInsert->bindParam(':full_name', $full_name);
         $BrandInsert->bindParam(':address', $address);
@@ -76,5 +76,10 @@ class Account// extends DbConnection
             return $count['COUNT(*)'];
         }
         return false;
+    }
+    
+    public function viewAllUsers() {
+        $AllUsers = $this->conn->prepare('SELECT * FROM db_accounting.tbl_profile ORDER BY date DESC;');
+        return $AllUsers->execute() ? $AllUsers->fetchAll() : false;
     }
 }

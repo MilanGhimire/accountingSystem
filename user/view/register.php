@@ -1,38 +1,9 @@
-<html>
-    <head>
-        <title>Register page</title>
-        <link rel="stylesheet" type="text/css" href="../../assets/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="../../assets/js/bootstrap.min.js"></script>
-        <script type="text/javascript">
-
-            function checkName() {
-                var uname = $('#userName').val();
-
-                if (uname != '') {
-
-                    $("#uname_response").show();
-
-                    $.ajax({
-                        url: '../../Controller/Action/uname_check.php',
-                        type: 'post',
-                        data: {uname: uname},
-                        success: function (response) {
-                            if (response > 0) {
-                                $("#uname_response").html("<span class='not-exists' style='color:red'>* Username Already in use.</span>");
-                            } else {
-                                $("#uname_response").html("<span class='exists' style='color:green'>Available.</span>");
-                            }
-
-                        }
-                    });
-                } else {
-                    $("#uname_response").hide();
-                }
-            }
-        </script>
-    </head>
-    <body>
+<?php
+$title = 'Register';
+$path = '../../';
+$active = null;
+include_once '../../assets/layouts/header.php'; 
+?>
         <div class="container">            
             <!--  -->
             <form onsubmit="return validateForm()" name="registerForm" class="well form-horizontal" action="../../Controller/Action/user_register.php" method="post">
@@ -108,7 +79,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label"></label>
                         <div class="col-md-4"><br>
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" name="signup" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" name="signup" id="submit_button" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span id="submitBtn" class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
                         </div>
                     </div>
 
@@ -117,12 +88,33 @@
         </div>
     </div><!-- /.container -->
 </body>
-<script>
-    function validateForm() {
-        var fullname = document.forms["registerForm"]["full_name"].value;
-        if (fullname == "") {
-            alert("Name must be filled out");
-            return false;
+<script type="text/javascript">
+
+    function checkName() {
+        var uname = $('#userName').val();
+
+        if (uname != '') {
+
+            $("#uname_response").show();
+
+            $.ajax({
+                url: '../../Controller/Action/uname_check.php',
+                type: 'post',
+                data: {uname: uname},
+                success: function (response) {
+                    if (response > 0) {
+                        $("#uname_response").html("<span class='not-exists' style='color:red'>* Username Already in use.</span>");
+                        $("#submit_button").prop( "disabled", true);
+
+                    } else {
+                        $("#uname_response").html("<span class='exists' style='color:green'>Available.</span>");
+                        $("#submit_button").prop( "disabled", false);
+                    }
+
+                }
+            });
+        } else {
+            $("#uname_response").hide();
         }
     }
 </script>

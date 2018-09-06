@@ -7,10 +7,9 @@ include_once '../call.php';
  * and open the template in the editor.
  */
 if (isset($_POST['app_submit'])) {
-    echo 'entered.';
     $full_name = $_POST['fullname'];
     $email = $_POST['email'];
-    $date = $_POST['app_date'];
+    $date = $_POST['datePicker'];
     $phoneNumber = $_POST['phone_number'];
     
     $appointment = new Appointment();

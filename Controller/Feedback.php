@@ -12,7 +12,7 @@ class Feedback {
     
     public function addFeedback($full_name, $email, $message) {
         
-        $AppintmentInsert = $this->conn->prepare("INSERT INTO `db_accounting`.`tbl_feedback` VALUES (NULL, :feedName, :feedEmail, :feedMessage)");
+        $AppintmentInsert = $this->conn->prepare("INSERT INTO `db_accounting`.`tbl_feedback` (`feed_name`, `feed_email`, `feed_message`,`feed_date`) VALUES (:feedName, :feedEmail, :feedMessage, CURRENT_TIMESTAMP)");
 
         $AppintmentInsert->bindParam(':feedName', $full_name);
         $AppintmentInsert->bindParam(':feedEmail', $email);
@@ -31,7 +31,7 @@ class Feedback {
     }
     
     public function viewAllFeedback() {
-        $AllFeedbacks = $this->conn->prepare('SELECT COUNT(*) FROM `db_accounting`.`tbl_feedback`;');
+        $AllFeedbacks = $this->conn->prepare('SELECT * FROM `db_accounting`.`tbl_feedback` ORDER BY feed_date DESC;');
         return $AllFeedbacks->execute() ? $AllFeedbacks->fetchAll() : false;
     }
 }
