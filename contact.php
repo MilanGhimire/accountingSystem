@@ -12,7 +12,7 @@ session_start();
 
 <!DOCTYPE html>
 <?php include_once 'assets/layouts/header.php'; ?>
-<div class="container">
+<div class="container" style="margin-bottom: 20px;">
     <div class="row">
         <div> <!-- Google maps -->
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2526300.5251948414!2d172.6738426935582!3d-42.50764149391143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d2c200e17779687%3A0xb1d618e2756a4733!2sNew+Zealand!5e0!3m2!1sen!2snp!4v1536240231208" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>

@@ -1,7 +1,7 @@
 <?php
 
-include_once '../Account.php';
-/* 
+include_once '../call.php';
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -15,19 +15,25 @@ if (isset($_POST['signup'])) {
     $password = md5($_POST['password']);
     $userType = "user";
 
-    echo $full_name;
-    echo $address;
-    echo $email;
-    echo $contact;
-    echo $username;
-    echo $password;
-    
+//    echo $full_name;
+//    echo $address;
+//    echo $email;
+//    echo $contact;
+//    echo $username;
+//    echo $password;
+
     $account = new Account();
     $check = $account->register($full_name, $address, $contact, $email, $username, $password, $userType);
+    $helper = new Helper();
     if ($check) {
-        echo 'User created.';
+        $helper->successMessage('Register submitted successfully.');
+        if (isset($_SESSION['showMessage'])) {
+            echo 'message is in session';
+        }
+        $helper->redirect('../../user/view/register.php');
     } else {
-        echo 'Error while creating user.';
+        $helper->errorMessage('Try again. Register submittion failed.');
+        $helper->redirect('../../user/view/register.php');
     }
 }
 

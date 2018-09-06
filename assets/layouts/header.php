@@ -120,7 +120,7 @@
                             echo 'class="active"';
                         }
                         ?>><a href="<?php echo $path; ?>index.php">Home</a></li>
-                        <li <?php //if($active=='aboutUs'){echo 'class="active"';}       ?>><a href="#">About Us</a></li>
+                        <li <?php if($active=='aboutUs'){ echo 'class="active"';} ?>><a href="<?php echo $path; ?>aboutUs.php">About Us</a></li>
                         <li <?php
                         if ($active == 'acServices') {
                             echo 'class="active"';
